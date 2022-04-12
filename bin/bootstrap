@@ -7,7 +7,7 @@ DIR=$PWD
 
 # Python and requirement install
 
-VAR=`python --version`
+VAR=`python3 --version`
 if [[ $VAR == *"Python 3"* ]]
 then
     echo "==========> Had the Correct Python version."
