@@ -128,6 +128,10 @@ def transform(batch):
     """
     return batch["image"], batch["target_positions"], batch["target_availabilities"]
 
+def batchNormal(batch):
+    normalized_dat = torch.nn.BatchNorm2d(100, eps=1e-4)
+    return normalized_dat
+
 class DotDict(dict):
     """dot.notation access to dictionary attributes
     Refer: https://stackoverflow.com/questions/2352181/how-to-use-a-dot-to-access-members-of-dictionary/23689767#23689767
