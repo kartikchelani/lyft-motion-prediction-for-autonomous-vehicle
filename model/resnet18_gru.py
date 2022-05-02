@@ -86,6 +86,7 @@ class Resnet18GRU(nn.Module):
             batch=self.batch_size, 
             in_dim=backbone_out_features
             )
+        self.dropout=nn.Dropout(p=0.5)
 
     def forward(self, x):
         x = self.backbone.conv1(x)
@@ -99,6 +100,7 @@ class Resnet18GRU(nn.Module):
         x = self.backbone.layer4(x)
 
         x = self.backbone.avgpool(x)
+        x = self.dropout(x)
         x = torch.flatten(x, 1)
 
         confidences, pred = self.gru_decoder(x)
